@@ -1,0 +1,18 @@
+.background{
+    background-color: rgba(0,0,0,0.47);
+}
+.background nav{
+    margin-right: 80px;
+}
+
+.l-section Link, a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: #0e0808;
+    padding: 5px;
+    font-size: 17px;
+}
+.l-section Link, a:hover {
+    background-color: rgb(156, 230, 21);
+    color: black;
+}
