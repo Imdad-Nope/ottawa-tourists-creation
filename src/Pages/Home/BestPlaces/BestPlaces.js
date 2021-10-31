@@ -4,7 +4,7 @@ import BestPlace from './BestPlace';
 const BestPlaces = () => {
     const [places, setPlaces] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/places')
+        fetch('https://damp-bastion-12491.herokuapp.com/places')
             .then(res => res.json())
             .then(data => setPlaces(data))
     }, [])

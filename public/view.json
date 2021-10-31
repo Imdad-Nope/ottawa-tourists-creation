@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Niagra Falls",
+        "description": "One of the naturally held stunning waterfalls of the World, Niagara falls attracts a large number of visitors every year with it's aesthetic scenes. There's also a large number of amenities facilities while wandering around the falls like watching the whole scene of waterfalls from the observation towers.",
+        "img": "https://i.ibb.co/HYN4bT7/carousal3.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Ottawa Mountain",
+        "description": "One of the naturally held stunning waterfalls of the World, Niagara falls attracts a large number of visitors every year with it's aesthetic scenes. There's also a large number of amenities facilities while wandering around the falls like watching the whole scene of waterfalls from the observation towers.",
+        "img": "https://i.ibb.co/f0wh4xc/carousal2.webp"
+    },
+    {
+        "id": 3,
+        "name": "St. Johns",
+        "description": "One of the naturally held stunning waterfalls of the World, Niagara falls attracts a large number of visitors every year with it's aesthetic scenes. There's also a large number of amenities facilities while wandering around the falls like watching the whole scene of waterfalls from the observation towers.",
+        "img": "https://i.ibb.co/N1DSPKq/carousal1.webp"
+    }
+]

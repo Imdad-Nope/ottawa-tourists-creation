@@ -2,9 +2,29 @@ import React from 'react';
 import './BesPlace.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import useAuth from '../../Hooks/useAuth';
+import { useHistory, useLocation } from 'react-router';
 const BestPlace = ({ place }) => {
     // const element = <FontAwesomeIcon icon={faStar} />
-    const { _id, name, img, price, rating } = place;
+
+    const { signInUsingGoogle, setUser } = useAuth();
+    const history = useHistory();
+    const location = useLocation();
+
+    const uri = location.state?.from || "gift"
+
+
+    const handleGoogleSign = () => {
+        signInUsingGoogle().then(result => {
+            setUser(result.user)
+            history.push(uri)
+        })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    const { _id, name, img, price } = place;
     return (
         <div className="col col-md-4 section">
             <div>
@@ -14,7 +34,7 @@ const BestPlace = ({ place }) => {
                 <br />
 
                 <small>$ {price} with couple</small>
-                < button className="mx-5 btns" > Send Enquery</button>
+                <button className="mx-5 btns" onClick={handleGoogleSign}>Send Enquery</button>
             </div>
         </div>
     );

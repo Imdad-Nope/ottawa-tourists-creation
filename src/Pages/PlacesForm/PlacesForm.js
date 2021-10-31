@@ -6,7 +6,7 @@ const PlacesForm = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:5000/places', data)
+        axios.post('https://damp-bastion-12491.herokuapp.com/places', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submitted successfully')

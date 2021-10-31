@@ -3,22 +3,16 @@ import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
-import useFirebase from '../Hooks/useFirebase';
 
-const Login = () => {
-    const { signInUsingGoogle, setUser } = useAuth();
+const Register = () => {
+    const { signInUsingGoogle, setUser, signInUsingEmail } = useAuth();
     const history = useHistory();
     const location = useLocation();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = e => {
-        console.log(e.target.value);
-    };
-
-    const uri = location.state?.from || "home"
 
     const handleEmail = e => {
         console.log(e)
@@ -28,11 +22,32 @@ const Login = () => {
         console.log(e)
         setPassword(e.target.value)
     }
+    const handleName = e => {
+        console.log(e)
+        setName(e.target.value)
+    }
+
 
 
     const handleRegistration = e => {
         e.preventDefault()
-    }
+        signInUsingEmail(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    };
+
+
+
+    const uri = location.state?.from || "home"
+
 
     const handleGoogleSign = () => {
         signInUsingGoogle().then(result => {
@@ -44,19 +59,18 @@ const Login = () => {
             })
     }
 
-
     return (
         <div className="places-data mt-5">
             <form onSubmit={handleRegistration}>
-
+                <input onBlur={handleName} placeholder="Name" />
                 <input onBlur={handleEmail} type="email" name="" id="" placeholder="Email" />
 
                 <input onBlur={handlePassword} type="password" name="" id="" placeholder="Password" />
                 <input type="submit" />
             </form>
             <div>
-                <span className="text-danger"> Didn'nt create account yet? </span>
-                <Link to="/register"><button className="bg-light">Register</button></Link>
+                <span className="text-success"> Alreday have an account?</span>
+                <Link to="/login"> <button className="bg-light">Login</button></Link>
             </div>
             <br />
             <button onClick={handleGoogleSign}>Google Sign In</button>
@@ -65,4 +79,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
