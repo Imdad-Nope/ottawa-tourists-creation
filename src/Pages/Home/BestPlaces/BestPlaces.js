@@ -15,6 +15,7 @@ const BestPlaces = () => {
             <div className="row">
                 {
                     places.map(place => <BestPlace
+                        key={place._id}
                         place={place}
                     ></BestPlace>)
 

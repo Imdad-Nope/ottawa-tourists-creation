@@ -14,7 +14,7 @@ const BestViews = () => {
             <div className="row">
                 {
                     views.map(view => <BestView
-                        id={view.id}
+                        key={view.id}
                         view={view}
                     ></BestView>)
                 }

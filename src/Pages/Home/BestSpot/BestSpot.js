@@ -14,7 +14,7 @@ const BestSpot = () => {
             <div className="row">
                 {
                     spots.map(spot => <Spots
-                        id={spot.id}
+                        key={spot.id}
                         spot={spot}
                     ></Spots>)
                 }
