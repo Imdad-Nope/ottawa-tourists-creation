@@ -5,8 +5,8 @@ import './Spots.css'
 const Spots = ({ spot }) => {
     const { name, id, description, img } = spot;
     return (
-        <div className="col col-md-4 spot-section">
-            <div>
+        <div className="col col-md-4">
+            <div className="spot-section">
                 <img src={img} alt="" />
                 <h5>{name}</h5>
                 <p>{description}</p>

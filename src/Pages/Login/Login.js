@@ -6,41 +6,60 @@ import useAuth from '../Hooks/useAuth';
 import useFirebase from '../Hooks/useFirebase';
 
 const Login = () => {
-    const { signInUsingGoogle, setUser } = useAuth();
+    const { signInUsingGoogle, setUser, logInUsingEmailAndPassword, setIsLoading } = useAuth();
     const history = useHistory();
     const location = useLocation();
+
+    const uri = location.state?.from || "home"
+
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = e => {
-        console.log(e.target.value);
-    };
+    // const onSubmit = e => {
+    //     console.log(e.target.value);
+    // };
 
-    const uri = location.state?.from || "home"
 
     const handleEmail = e => {
-        console.log(e)
         setEmail(e.target.value)
     }
     const handlePassword = e => {
-        console.log(e)
         setPassword(e.target.value)
     }
 
 
     const handleRegistration = e => {
         e.preventDefault()
-    }
+        logInUsingEmailAndPassword(email, password).then((res) => {
+
+            setIsLoading(true)
+            setUser(res.user)
+            sessionStorage.setItem("email", res.user.email);
+            history.push(uri)
+        })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    };
 
     const handleGoogleSign = () => {
-        signInUsingGoogle().then(result => {
-            setUser(result.user)
+        signInUsingGoogle().then(res => {
+            setIsLoading(true)
+            setUser(res.user)
+            sessionStorage.setItem("email", res.user.email);
             history.push(uri)
         })
             .catch((error) => {
                 console.log(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
             })
     }
 

@@ -6,8 +6,6 @@ const NewExperiences = () => {
     return (
         <>
             <div>
-
-                <h3 className="text-primary">Get New Experience By Reading Our Daily Blog</h3>
                 <Carousel>
                     <Carousel.Item>
                         <img
@@ -45,6 +43,14 @@ const NewExperiences = () => {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
+            </div>
+
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-info">
+                    <div class="container-md justify-content-center">
+                        <h3 className="text-white">Get New Experiences By Reading Our Daily Blog</h3>
+                    </div>
+                </nav>
             </div>
             <div className="mt-5 container col col-md-12">
                 <div className=" spot-section">

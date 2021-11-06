@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const BestView = ({ view }) => {
     const { name, id, img, description } = view;
     return (
-        <div className="col col-md-4 spot-section">
-            <div>
+        <div className="col col-md-4">
+            <div className="spot-section">
                 <img src={img} alt="" />
                 <h5>{name}</h5>
                 <p>{description}</p>

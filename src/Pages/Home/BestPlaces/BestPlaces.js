@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BestPlace from './BestPlace';
+import './BestPlace.css';
 
 const BestPlaces = () => {
     const [places, setPlaces] = useState([])

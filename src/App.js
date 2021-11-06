@@ -11,6 +11,8 @@ import NotFound from './Pages/NotFound/NotFound';
 import AuthProvider from './Pages/useContext/AuthProvider';
 import Register from './Pages/Register/Register';
 import Activities from './Pages/Activities/Activities';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import Booking from './Pages/Home/Bookings/Booking';
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
             <Route path="/gift">
               <NewExperiences></NewExperiences>
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
               <Login></Login>
             </Route>
             <Route path="/register">
@@ -40,6 +42,9 @@ function App() {
             <Route path="/placesForm">
               <PlacesForm></PlacesForm>
             </Route>
+            <PrivateRoute exact path="/booking/:bookId">
+              <Booking></Booking>
+            </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

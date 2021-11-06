@@ -1,3 +1,4 @@
+import { updateProfile } from '@firebase/auth';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
@@ -5,9 +6,11 @@ import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
-    const { signInUsingGoogle, setUser, signInUsingEmail } = useAuth();
+    const { signInUsingGoogle, setUser, signInUsingEmail, setIsLoading, updateName } = useAuth();
     const history = useHistory();
     const location = useLocation();
+
+    const uri = location.state?.from || "home"
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -15,15 +18,12 @@ const Register = () => {
 
 
     const handleEmail = e => {
-        console.log(e)
         setEmail(e.target.value)
     }
     const handlePassword = e => {
-        console.log(e)
         setPassword(e.target.value)
     }
     const handleName = e => {
-        console.log(e)
         setName(e.target.value)
     }
 
@@ -32,30 +32,38 @@ const Register = () => {
     const handleRegistration = e => {
         e.preventDefault()
         signInUsingEmail(email, password)
-            .then((userCredential) => {
+            .then((res) => {
+                sessionStorage.setItem("email", res.user.email);
+                setIsLoading(true)
+                updateName(name)
+
                 // Signed in 
-                const user = userCredential.user;
-                // ...
+                setUser(res.user)
+                history.push(uri)
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 // ..
-            });
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
     };
 
 
-
-    const uri = location.state?.from || "home"
-
-
-    const handleGoogleSign = () => {
-        signInUsingGoogle().then(result => {
-            setUser(result.user)
+    const handleGoogleSignIn = () => {
+        signInUsingGoogle().then(res => {
+            sessionStorage.setItem("email", res.user.email);
+            setIsLoading(true)
+            setUser(res.user)
             history.push(uri)
         })
             .catch((error) => {
                 console.log(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
             })
     }
 
@@ -73,7 +81,7 @@ const Register = () => {
                 <Link to="/login"> <button className="bg-light">Login</button></Link>
             </div>
             <br />
-            <button onClick={handleGoogleSign}>Google Sign In</button>
+            <button onClick={handleGoogleSignIn}>Google Sign In</button>
 
         </div>
     );
