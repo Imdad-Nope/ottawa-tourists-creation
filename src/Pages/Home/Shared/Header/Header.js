@@ -23,20 +23,21 @@ const Header = () => {
 
                             </Nav>
                         </div>
-                        <h4 className="text-info">Hey Welcome Here !!<span>{element}</span></h4>
+                        {/* <h4 className="text-info">Hey Welcome Here !!<span>{element}</span></h4> */}
                         <Navbar className="nav">
                             {user.email ? <button onClick={logOut}>Logout</button>
                                 :
                                 <Nav.Link as={Link} className="text-white" to="/login">Login</Nav.Link>}
-                            <Nav.Link as={Link} className="text-white" to="/register">Register</Nav.Link>
+
+                            {/* <Nav.Link as={Link} className="text-white" to="/register">Register</Nav.Link> */}
                             <Navbar.Toggle />
-                            <Navbar.Collapse className="justify-content-end">
+                            {/* <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
                                     Signed in as: <a className="text-white" href="#login">{user.email}</a>
 
                                 </Navbar.Text>
-                                <p>Name: {user?.displayName}</p>
-                            </Navbar.Collapse>
+                            <p>{user?.displayName}</p>
+                            </Navbar.Collapse> */}
                         </Navbar>
                     </div>
                 </nav>

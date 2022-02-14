@@ -1,8 +1,9 @@
 import { updateProfile } from '@firebase/auth';
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
@@ -77,9 +78,11 @@ const Register = () => {
                 <input type="submit" />
             </form>
             <div>
-                <span className="text-success"> Alreday have an account?</span>
-                <Link to="/login"> <button className="bg-light">Login</button></Link>
+                <Link to="/login">
+                    <Button type='submit' variant='text'>Already Have An Account? Please Login</Button>
+                </Link>
             </div>
+
             <br />
             <button onClick={handleGoogleSignIn}>Google Sign In</button>
 

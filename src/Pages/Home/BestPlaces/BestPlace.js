@@ -1,23 +1,40 @@
 import React from 'react';
-import useAuth from '../../Hooks/useAuth';
-import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
 
 
 const BestPlace = ({ place }) => {
     const { _id, name, img, price } = place;
     return (
-        <div className="col col-md-4">
-            <div className="spot-section">
-                <img src={img} alt="" />
-                <h5>{name}</h5>
-                <small>$ {price}</small>
-                <span>with couple</span>
-                {/* <span><small>{_id}</small></span> */}
-                <Link to={`/booking/${_id}`}> <button className="mx-5 btns bg-success text-white">Send Enquery</button></Link>
-            </div>
-        </div>
+
+        <Grid item xs={2} sm={4} md={4}>
+            <Card sx={{ minWidth: 275 }}>
+                <Container>
+                    <CardMedia
+                        component="img"
+                        height="340"
+                        image={img}
+                        alt="green iguana"
+                    />
+                    <CardContent>
+                        <Typography variant="h6" component="div">
+                            {name}
+                        </Typography>
+                        <Typography variant="body2">
+                            ${price}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Link to={`/booking/${_id}`}> <Button className="mx-5 btns bg-success text-white">Send Enquery</Button>
+                        </Link >
+                    </CardActions>
+                </Container>
+            </Card>
+        </Grid>
+
     );
 };
+
 
 export default BestPlace;

@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
@@ -74,8 +75,9 @@ const Login = () => {
                 <input type="submit" />
             </form>
             <div>
-                <span className="text-danger"> Didn'nt create account yet? </span>
-                <Link to="/register"><button className="bg-light">Register</button></Link>
+                <Link to="/register">
+                    <Button variant='text'>Do not have an Account? Please register</Button>
+                </Link>
             </div>
             <br />
             <button onClick={handleGoogleSign}>Google Sign In</button>
