@@ -14,7 +14,7 @@ const Booking = () => {
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
-    console.log(books)
+    // console.log(books)
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         data.email = email;
