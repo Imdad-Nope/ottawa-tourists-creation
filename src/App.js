@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './Pages/Home/Home/Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './Pages/Home/Shared/Header/Header';
-import NewExperiences from './Pages/Home/Home/NewExperiences/NewExperiences';
 import Login from './Pages/Login/Login';
 import Footer from './Pages/Home/Shared/Footer/Footer';
 import PlacesForm from './Pages/PlacesForm/PlacesForm';
@@ -13,6 +11,8 @@ import Register from './Pages/Register/Register';
 import Activities from './Pages/Activities/Activities';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Booking from './Pages/Home/Bookings/Booking';
+
+import AllOrders from './Pages/AllOrders/AllOrders';
 
 function App() {
   return (
@@ -30,9 +30,10 @@ function App() {
             <Route path="/activity">
               <Activities></Activities>
             </Route>
-            <Route path="/gift">
-              <NewExperiences></NewExperiences>
+            <Route path="/orders">
+              <AllOrders></AllOrders>
             </Route>
+
             <Route exact path="/login">
               <Login></Login>
             </Route>

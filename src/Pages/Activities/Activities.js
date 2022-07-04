@@ -1,5 +1,4 @@
 import React from 'react';
-import './Activities.css'
 import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 import Activity from './Activity/Activity';
@@ -81,18 +80,20 @@ const activities = [
 
 const Activities = () => {
     return (
-        <Container sx={{ flexGrow: 1 }}>
-            <Typography variant="h5" component="div" sx={{ my: 4, color: 'green' }}>
-                Tourists' Monthly visited Places
-            </Typography>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {
-                    activities.map(activity => <Activity
-                        activity={activity}
-                    ></Activity>)
-                }
-            </Grid>
-        </Container>
+        <div style={{ marginTop: '5%' }}>
+            <Container sx={{ flexGrow: 1 }}>
+                <Typography variant="h5" component="div" sx={{ my: 4, color: 'green' }}>
+                    Tourists' Monthly visited Places
+                </Typography>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {
+                        activities.map(activity => <Activity
+                            activity={activity}
+                        ></Activity>)
+                    }
+                </Grid>
+            </Container>
+        </div>
     );
 };
 

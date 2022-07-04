@@ -1,0 +1,11 @@
+.activityMain .btnAction .link {
+    text-decoration: none;
+}
+
+.activityMain .btnAction .link:hover {
+    background-color: aqua;
+}
+
+.btn {
+    color: #eee;
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import BestPlace from './BestPlace';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Container, Typography } from '@mui/material';
 
@@ -13,8 +12,8 @@ const BestPlaces = () => {
     }, [])
     return (
         <Container sx={{ flexGrow: 1 }}>
-            <Typography variant="h5" component="div" sx={{ color: 'green' }}>
-                Best Places are here
+            <Typography variant="h4" component="div" sx={{ color: '#16a085', mb: 2 }}>
+                Best Places
             </Typography>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {

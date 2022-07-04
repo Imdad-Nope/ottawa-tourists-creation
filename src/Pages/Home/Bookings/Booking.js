@@ -1,54 +1,113 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useHistory, useLocation, useParams } from 'react-router';
-import useAuth from '../../Hooks/useAuth';
-import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router';
+import { Container, Grid, Typography } from '@mui/material';
+import axios from 'axios';
+import './Booking.css';
 
 const Booking = () => {
+
     const { bookId } = useParams()
     const [books, setBooks] = useState({});
-    const email = sessionStorage.getItem("email");
+
+    const [info, setInfo] = useState({})
+
+
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const orders = { ...info };
+        orders[field] = value;
+        setInfo(orders);
+
+    }
+
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        const allOrders = {
+            ...info,
+            bookingInfo: books
+        }
+
+        axios.post('https://damp-bastion-12491.herokuapp.com/bidConfirm', allOrders)
+            .then(res => {
+                alert('Orders added successfully')
+                e.target.reset()
+            })
+
+        // fetch('https://damp-bastion-12491.herokuapp.com/bidConfirm', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(allOrders)
+        // })
+        //     .then(res => res.json())
+        //     .then(result => {
+        //         alert('Successfully bid confirmed')
+        //         e.target.reset()
+        //     })
+    }
+
 
     useEffect(() => {
-        fetch(`https://damp-bastion-12491.herokuapp.com/choosedPlace/${bookId}`)
+        const url = `https://damp-bastion-12491.herokuapp.com/choosedPlace/${bookId}`
+        fetch(url)
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
-    // console.log(books)
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => {
-        data.email = email;
 
-        fetch('https://damp-bastion-12491.herokuapp.com/bidConfirm', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(result => console.log(result))
 
-        console.log(data)
-    }
+
+
+
 
     return (
-        <div className="places-data mt-5">
-            <div>
-                <img src={books?.img} alt="" />
-                <h6>Name: {books?.name}</h6>
-                <span>Price: {books?.price}</span>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 120 })} defaultValue={books?.name} placeholder="Name" />
-                <input {...register("rating", { required: true, maxLength: 20 })} placeholder="Rating" />
+        <div className='bookingMain'>
+            <Container>
+                <Grid container direction="row"
+                    justifyContent="space-around"
+                    alignItems="center">
+                    <Grid xs={12} sm={6}>
+                        <img src={books?.img} alt="" width='100%' />
 
-                <input type="number" {...register("price")} defaultValue={books?.price} placeholder="Price" />
-                <input {...register("img")} defaultValue={books?.img} placeholder="Image url" />
-                <input type="submit" />
-            </form>
+                    </Grid>
+                    <Grid xs={12} sm={6} >
+                        <Typography variant="h6" gutterBottom component="div">
+                            To confirm your <span className='packageName'>" {books?.packageName} "</span> tour ! Please send your information.
+                        </Typography>
 
-        </div>
+                        <form onSubmit={handleSubmit} className='inputField'>
+                            <input
+                                className='field'
+                                type="name"
+                                name="name"
+                                onBlur={handleOnBlur}
+                                placeholder='Your Name'
+
+                            />
+                            <input
+                                className='field'
+                                type="email"
+                                name="email"
+                                onBlur={handleOnBlur}
+                                placeholder='Your Email'
+                            />
+                            <input
+                                className='field'
+                                type="number"
+                                name="phoneNumber"
+                                onBlur={handleOnBlur}
+                                placeholder='Your Number'
+                            />
+                            <input className='field'
+                                type="submit" value="Submit" />
+                        </form>
+                    </Grid>
+                </Grid>
+            </Container>
+        </div >
     );
 };
 

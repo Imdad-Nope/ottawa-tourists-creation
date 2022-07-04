@@ -6,11 +6,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardMedia, Grid, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
+import './Activity.css';
 
 const Activity = ({ activity }) => {
     const { name, description, packages, img } = activity;
     return (
-        <Grid item xs={2} sm={4} md={4}>
+
+        <Grid item xs={4} sm={4} md={4} className='activityMain'>
             <Card sx={{ minWidth: 275 }}>
                 <Container>
                     <CardMedia
@@ -31,12 +33,15 @@ const Activity = ({ activity }) => {
                             <span style={{ color: 'red' }}>Packages: </span>  {packages}
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                        <Link to="/gift"><Button className="bg-success text-white">Know more</Button></Link>
+                    <CardActions className='btnAction'>
+                        <Link to="/gift" className='link'>
+                            <Button variant='outlined'>Know more</Button>
+                        </Link>
                     </CardActions>
                 </Container>
             </Card>
         </Grid>
+
     );
 };
 

@@ -1,18 +1,39 @@
-.background{
-    background-color: rgba(131, 219, 58, 0.47);
-}
-.background nav{
-    margin-right: 80px;
+.nav-items .item {
+    color: #333;
 }
 
-.l-section Link, a{
-    margin-left: 20px;
-    text-decoration: none;
-    color: #0e0808;
-    padding: 5px;
-    font-size: 17px;
+.nav-items .item:hover {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
 }
-.l-section Link, a:hover {
-    background-color: rgb(156, 230, 21);
-    color: black;
+
+.signBtn .link {
+    text-decoration: none;
+}
+
+.signBtn .signOut {
+    color: white;
+    background: salmon;
+    padding: 5px 30px;
+    border-radius: 12px;
+}
+
+.signBtn .signOut:hover {
+    background-color: aqua;
+    color: #333
+}
+
+.signBtn .btn {
+    background-color: mediumseagreen;
+    color: aliceblue;
+
+    padding: 5px 30px;
+    border: none;
+    border-radius: 10px;
+}
+
+.signBtn .btn:hover {
+    background: salmon;
+    color: #eee;
+
 }

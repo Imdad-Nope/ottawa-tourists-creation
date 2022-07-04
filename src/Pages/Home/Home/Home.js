@@ -1,8 +1,8 @@
 import React from 'react';
 import Banner from '../../Banner/Banner';
+import AskedQuestions from '../AskQuestions/AskedQuestions';
 import BestPlaces from '../BestPlaces/BestPlaces';
-import BestSpot from '../BestSpot/BestSpot';
-import BestViews from '../BestViews/BestViews';
+import Reviews from '../Reviews/Reviews';
 import CanadianPlaces from '../TouristsPlaces/CanadianPlaces';
 
 const Home = () => {
@@ -10,10 +10,10 @@ const Home = () => {
         <div>
 
             <Banner></Banner>
-            <CanadianPlaces></CanadianPlaces>
+            <Reviews />
             <BestPlaces></BestPlaces>
-            <BestSpot></BestSpot>
-            <BestViews></BestViews>
+            <CanadianPlaces></CanadianPlaces>
+            <AskedQuestions />
         </div>
     );
 };

@@ -1,0 +1,27 @@
+.mainContainer .card {
+    background: #bbe4dc;
+    border-radius: 6px;
+}
+
+.mainContainer .cardAction .link {
+    text-decoration: none;
+}
+
+.mainContainer .card:hover {
+    transform: scale(1.1);
+    transition: 0.8s ease-out;
+}
+
+.mainContainer .cardAction {
+    justify-content: center;
+}
+
+.mainContainer .button {
+    background-color: #16a085;
+    color: #eee;
+}
+
+.mainContainer .button:hover {
+    background: aquamarine;
+    color: #333;
+}

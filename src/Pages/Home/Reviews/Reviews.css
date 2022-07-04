@@ -1,0 +1,17 @@
+.main {
+    margin-top: 36px;
+    margin-bottom: 6rem;
+}
+
+.main .icon {
+    font-size: 100px;
+    color: #16a085;
+}
+
+.main .card {
+    border: 2px solid #16a085;
+    box-shadow: 5px 10px #57978a;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}

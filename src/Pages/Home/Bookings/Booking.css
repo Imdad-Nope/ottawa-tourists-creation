@@ -1,0 +1,18 @@
+.bookingMain {
+    margin-top: 10%;
+}
+
+.bookingMain .packageName {
+    color: slategray;
+    font-weight: bold;
+}
+
+.bookingMain .inputField {
+    margin: 20px;
+}
+
+.bookingMain .inputField .field {
+    width: 100%;
+    padding: 5px;
+    margin: 10px;
+}
