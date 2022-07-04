@@ -32,21 +32,36 @@ function Header(props) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                Ottawa
             </Typography>
             <Divider />
-            <Link to='/home'>
+            <Link to='/home' className='mobileNav'>
                 Home
             </Link>
             <Divider />
-            <Link to='/activites'>
-                Activity
-            </Link>
+            {
+                user?.email &&
+                <Link to='/activity' className='mobileNav'>
+                    Tourists Activities
+                </Link>
+            }
             <Divider />
-            <Link to='/Gift'>
-                Gift
-            </Link>
+            {
+                user?.email &&
+                <Link to='/orders' className='mobileNav'>
+                    Your Orders
+                </Link>
+            }
             <Divider />
+            <Grid sx={{ mt: 4 }}>
+                {
+                    user?.email ? <Button variant='contained' onClick={logOut} sx={{ ml: 'auto' }} className='signOutMobile'>Sign Out</Button>
+                        :
+                        <Link to='/login' className='mobileNav'>
+                            <Button variant='contained' className='btnMobile'>Sign In</Button>
+                        </Link>
+                }
+            </Grid>
 
         </Box>
     );

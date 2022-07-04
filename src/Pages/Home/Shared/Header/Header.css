@@ -1,3 +1,28 @@
+/* For Mobile Section */
+
+.mobileNav {
+    text-decoration: none;
+    color: #333;
+}
+
+.signOutMobile {
+    color: white;
+    background: salmon;
+    padding: 5px 30px;
+    border-radius: 12px;
+}
+
+.btnMobile {
+    background-color: mediumseagreen;
+    color: aliceblue;
+
+    padding: 5px 30px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* For Pc Section */
+
 .nav-items .item {
     color: #333;
 }
