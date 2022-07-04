@@ -29,7 +29,7 @@ const BestPlace = ({ place }) => {
                     </Bounce>
                     <Bounce top>
                         <CardActions className='cardAction'>
-                            <Link to={`/booking/${_id}`} className='link'> <Button variant="outlined" className="button">Send Enquery</Button>
+                            <Link to={`/booking/${_id}`} className='link'> <Button variant="outlined" className="button">Send Enquiry</Button>
                             </Link >
                         </CardActions>
                     </Bounce>
