@@ -6,7 +6,7 @@ const PlacesForm = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('https://damp-bastion-12491.herokuapp.com/places', data)
+        axios.post('https://ottawa-tourists-server.vercel.app/places', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submitted successfully')

@@ -30,13 +30,13 @@ const Booking = () => {
             bookingInfo: books
         }
 
-        axios.post('https://damp-bastion-12491.herokuapp.com/bidConfirm', allOrders)
+        axios.post('https://ottawa-tourists-server.vercel.app/bidConfirm', allOrders)
             .then(res => {
                 alert('Orders added successfully')
                 e.target.reset()
             })
 
-        // fetch('https://damp-bastion-12491.herokuapp.com/bidConfirm', {
+        // fetch('https://ottawa-tourists-server.vercel.app/bidConfirm', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -52,7 +52,7 @@ const Booking = () => {
 
 
     useEffect(() => {
-        const url = `https://damp-bastion-12491.herokuapp.com/choosedPlace/${bookId}`
+        const url = `https://ottawa-tourists-server.vercel.app/choosedPlace/${bookId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setBooks(data))

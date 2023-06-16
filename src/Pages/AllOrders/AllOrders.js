@@ -8,7 +8,7 @@ const AllOrders = () => {
     // Get orders
 
     useEffect(() => {
-        fetch('https://damp-bastion-12491.herokuapp.com/bidConfirm')
+        fetch('https://ottawa-tourists-server.vercel.app/bidConfirm')
             .then(res => res.json())
             .then(data => setOrders(data))
 
@@ -20,7 +20,7 @@ const AllOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete the ordered?')
         if (proceed) {
-            const url = `https://damp-bastion-12491.herokuapp.com/bidConfirm/${id}`
+            const url = `https://ottawa-tourists-server.vercel.app/bidConfirm/${id}`
 
             fetch(url, {
                 method: 'DELETE'

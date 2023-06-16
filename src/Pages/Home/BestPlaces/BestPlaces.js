@@ -6,7 +6,7 @@ import { Container, Typography } from '@mui/material';
 const BestPlaces = () => {
     const [places, setPlaces] = useState([])
     useEffect(() => {
-        fetch('https://damp-bastion-12491.herokuapp.com/places')
+        fetch('https://ottawa-tourists-server.vercel.app/places')
             .then(res => res.json())
             .then(data => setPlaces(data))
     }, [])
