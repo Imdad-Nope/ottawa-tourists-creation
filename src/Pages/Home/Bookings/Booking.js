@@ -30,13 +30,13 @@ const Booking = () => {
             bookingInfo: books
         }
 
-        axios.post('https://ottawa-tourists-server.vercel.app/bidConfirm', allOrders)
+        axios.post('https://tourists-recreation-server.onrender.com/bidConfirm', allOrders)
             .then(res => {
                 alert('Orders added successfully')
                 e.target.reset()
             })
 
-        // fetch('https://ottawa-tourists-server.vercel.app/bidConfirm', {
+        // fetch('https://tourists-recreation-server.onrender.com/bidConfirm', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -52,7 +52,7 @@ const Booking = () => {
 
 
     useEffect(() => {
-        const url = `https://ottawa-tourists-server.vercel.app/choosedPlace/${bookId}`
+        const url = `https://tourists-recreation-server.onrender.com/choosedPlace/${bookId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setBooks(data))

@@ -6,7 +6,7 @@ import { Container, Typography } from '@mui/material';
 const BestPlaces = () => {
     const [places, setPlaces] = useState([])
     useEffect(() => {
-        fetch('https://ottawa-tourists-server.vercel.app/places')
+        fetch('https://tourists-recreation-server.onrender.com/places')
             .then(res => res.json())
             .then(data => setPlaces(data))
     }, [])
